@@ -6,5 +6,5 @@ exports.get_landing = (req, res, next) => {
 exports.submit_lead = (req, res, next) => {
   models.Lead.create({
     email: req.body.lead_email,
-  }).then((lead) => res.redirect("/"));
+  }).then((lead) => res.redirect("/leads"));
 };
