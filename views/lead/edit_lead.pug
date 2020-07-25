@@ -1,0 +1,8 @@
+extends ../layout
+
+block content
+  h1 Editing lead #{lead.id}
+  p Enter new email for: #{lead.email}
+  form(action="/lead/"+lead.id+"/edit", method="POST")
+    input(name="lead_email" type="email",placeholder="Enter new email adress" value=lead.email)
+    button(type="submit") Save changes
