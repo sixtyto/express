@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+    .jumbotron
+        h2.text-center Sign up
+        .row
+            .col
+                form(action="/user/signup",method="POST")
+                    .formgroup 
+                        label.small.mb-1.mt-3 Email:
+                        input(placeholder="Please enter your email", required=true, name='email', type='email',value="").form-control
+                        label.small.mb-1.mt-3 Password:
+                        input(placeholder="New password", required=true, name='password', type='password',value="").form-control
+                        button.mt-3.btn.btn-primary(type='submit') Sign up
+                        p.mt-2.mb-0 
+                            | Already have an account? #[a(href="/user/login") Log in here]
+                        
