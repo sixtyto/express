@@ -28,20 +28,19 @@ module.exports = (passport) => {
         passReqToCallback: true,
       },
       (req, email, password, done) => {
-        models.user
-          .findOne({
-            where: {
-              email: email,
-            },
-          })
+        models.User.findOne({
+          where: {
+            email: email,
+          },
+        })
           .then((user) => {
             if (user == null) {
-              req.flash("message", "incorrect creditials.");
+              req.flash("message", "Incorrect credentials.");
               return done(null, false);
-            } else if (user.passport == null || user.password == undefined) {
+            } else if (user.password == null || user.password == undefined) {
               req.flash("message", "You must reset your password");
               return done(null, false);
-            } else if (validPassword(user, password)) {
+            } else if (!validPassword(user, password)) {
               req.flash("message", "Incorrect credentials");
               return done(null, false);
             }
