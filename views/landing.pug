@@ -1,8 +1,9 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  form(action="/", method="POST")
-    input(name="lead_email" type="email",placeholder="Enter your email adress")
-    button(type="submit") Submit
+    h1.text-center= title
+    p.text-center Welcome to #{title}
+    form(action="/", method="POST").text-center.input-group.mb-3
+      input(name="lead_email" type="email",placeholder="Enter your email adress").form-control
+      .input-group-append
+        button(type="submit").btn.btn-primary Submit

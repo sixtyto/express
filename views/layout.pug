@@ -1,8 +1,12 @@
 include shared/head.pug
+include shared/navbar.pug
+include shared/footer.pug
 +head(title)
++navbar()
 html
   body
-    div.container
-      block content
-include shared/footer.pug
+    .container
+      .row
+        .col
+          block content
 +footer()
