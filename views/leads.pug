@@ -4,4 +4,5 @@ block content
   h1 List of leads:
   ul
   for lead in leads
-    li #{lead.email}
+    li  
+      a(href='/lead/'+lead.id) #{lead.email}
