@@ -34,3 +34,9 @@ exports.login = (req, res, next) => {
     failureFlash: true,
   })(req, res, next);
 };
+
+exports.logout = (req, res, next) => {
+  req.logout();
+  req.session.destroy();
+  res.redirect("/");
+};

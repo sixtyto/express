@@ -1,7 +1,7 @@
 const models = require("../models");
 
 exports.get_landing = (req, res, next) => {
-  res.render("landing", { title: "Leads getter" });
+  res.render("landing", { title: "Leads getter", user: req.user });
 };
 exports.submit_lead = (req, res, next) => {
   models.Lead.create({

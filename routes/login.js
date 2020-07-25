@@ -6,6 +6,8 @@ const login = require("../controllers/login");
 router.get("/login", login.show_login);
 router.get("/signup", login.show_signup);
 router.post("/login", login.login);
+router.post("/logout", login.logout);
+router.get("/logout", login.logout);
 router.post("/signup", login.signup);
 
 module.exports = router;
