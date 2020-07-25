@@ -8,5 +8,6 @@ router.get("/:lead_id", lead.show_lead);
 router.get("/:lead_id/edit", lead.show_edit_lead);
 router.post("/:lead_id/edit", lead.edit_lead);
 router.post("/:lead_id/delete", lead.delete_lead);
+router.post("/:lead_id/delete-json", lead.delete_lead_json);
 
 module.exports = router;

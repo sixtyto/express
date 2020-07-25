@@ -4,5 +4,7 @@ block content
   h1 List of leads:
   ul
   for lead in leads
-    li  
+    li(id=lead.id)
       a(href='/lead/'+lead.id) #{lead.email}
+      |
+      button(onclick=`deleteLead('${lead.id}')`) Delete
