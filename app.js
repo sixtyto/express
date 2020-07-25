@@ -3,12 +3,14 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-
+const passport = require("passport");
+const session = require("express-session");
 const indexRouter = require("./routes/index");
 const leadRouter = require("./routes/lead");
 const leadsRouter = require("./routes/leads");
 const loginRouter = require("./routes/login");
 
+require("./passport_setup")(passport);
 const app = express();
 
 // view engine setup
@@ -20,6 +22,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(session({ secret: "tajny sekrecik" }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/", indexRouter);
 app.use("/lead", leadRouter);
